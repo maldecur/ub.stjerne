@@ -49,30 +49,33 @@
             Web developer: <a href="https://github.com/maldecur" target="_blank" style="color:#fff;text-decoration:underline;">https://github.com/maldecur</a>
         </footer>
     </div>  
-
     <div id="orderModal" class="modal">
-      <div class="modal-content">
-        <span class="close" id="closeModal">&times;</span>
-        <h2>Оформление заказа</h2>
-        <form id="orderForm">
-          <label>Имя:<br>
-            <input type="text" name="name" required>
-          </label><br><br>
-          <label>Телефон:<br>
-            <input type="text" name="phone" required>
-          </label><br><br>
-          <label>Email:<br>
-            <input type="email" name="email" required>
-          </label><br><br>
-          <label>Адрес доставки (Норвегия):<br>
-            <input type="text" name="address" required>
-          </label><br><br>
-          <label>Комментарий:<br>
-            <textarea name="message" rows="3"></textarea>
-          </label><br><br>
-          <button type="submit" class="btn">Заказать</button>
-          <div id="orderStatus"></div>
-        </form>
+  <div class="modal-content">
+    <span class="close" id="closeModal">&times;</span>
+    <h2>Оформление заказа</h2>
+    <form id="orderForm">
+      <label>Имя:</label>
+      <input type="text" name="name" required placeholder="Ваше имя">
+      
+      <label>Телефон:</label>
+      <input type="tel" name="phone" required placeholder="+47 XXX XX XXX">
+      
+      <label>Email:</label>
+      <input type="email" name="email" required placeholder="example@email.com">
+      
+      <label>Адрес доставки (Норвегия):</label>
+      <input type="text" name="address" required placeholder="Город, улица, дом">
+      
+      <label>Комментарий:</label>
+      <textarea name="message" rows="3" placeholder="Дополнительная информация..."></textarea>
+      
+      <button type="submit" class="btn">Заказать</button>
+      <div id="orderStatus"></div>
+    </form>
+  </div>
+</div>
+    
+         
       </div>
     </div>
 
@@ -91,3 +94,4 @@ window.onclick = function(event) {
 };
 
 document.getElementById('orderForm
+
