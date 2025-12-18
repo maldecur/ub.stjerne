@@ -14,7 +14,7 @@ body {
     padding-top: 15px;
 }
 
-/* Стили для шапки */
+/* Header */
 header {
     display: flex;
     justify-content: space-between;
@@ -22,7 +22,6 @@ header {
     padding: 20px 0;
 }
 
-/* Стили для логотипа */
 .logo {
     display: flex;
     align-items: center;
@@ -48,7 +47,7 @@ header {
     opacity: 0.6;
 }
 
-/* Главный блок */
+/* Hero seksjon */
 .hero {
     width: 100%;
     display: flex;
@@ -57,6 +56,7 @@ header {
     position: relative;
     overflow: visible;
     border: 1px solid #ccc;
+    margin-bottom: 40px;
 }
 
 .hero-text {
@@ -71,7 +71,6 @@ header {
     padding: 40px 20px;
 }
 
-/* Контейнер для заголовка + абзаца */
 .hero-heading {
     display: flex;
     flex-direction: column;
@@ -93,7 +92,7 @@ header {
     margin-top: 4px;
 }
 
-/* Кнопка bestille */
+/* Knapper */
 .btn {
     display: inline-block;
     padding: 16px 38px;
@@ -115,29 +114,13 @@ header {
     transform: translateY(-2px);
 }
 
-.btn-vipps {
-    background-color: #FF5B24;
-    color: white;
-    padding: 15px 30px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.btn-vipps:hover {
-    background-color: #E64A19;
-    transform: translateY(-2px);
-}
-
 .hero img {
     width: 40%;
     height: auto;
     border: 1px solid black;
 }
 
+/* Om oss seksjon */
 .selektion {
     width: 100%;
     height: auto;
@@ -148,6 +131,11 @@ header {
     margin-top: 6px;
     box-sizing: border-box;
     padding-bottom: 40px;
+}
+
+.selektion h1 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
 }
 
 .selektion-content {
@@ -161,6 +149,8 @@ header {
 
 .selektion-content p {
     max-width: 500px;
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
 
 .selektion img {
@@ -168,19 +158,37 @@ header {
     max-width: 400px;
     height: auto;
     border: 1px solid black;
+    border-radius: 8px;
 }
 
-.kontimg {
-    width: 40%;
-    max-width: 400px;
-    height: auto;
-    border: 1px solid black;
-}
-
+/* Kontakt seksjon */
 .kontakt {
     margin-top: 50px;
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
 }
 
+.kontakt h2 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    color: #222;
+}
+
+.kontakt p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.delivery-info {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    font-style: italic;
+}
+
+/* Footer */
 footer {
     width: 100vw;
     left: 50%;
@@ -192,10 +200,16 @@ footer {
     color: #fff;
     text-align: center;
     font-size: 1rem;
-    margin-top: 40px;
+    margin-top: 60px;
     letter-spacing: 1px;
 }
 
+footer a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -215,10 +229,12 @@ footer {
     padding: 30px;
     border-radius: 12px;
     width: 90%;
-    max-width: 500px;
+    max-width: 600px;
     position: relative;
     box-shadow: 0 8px 32px rgba(0,0,0,0.2);
     animation: modalFadeIn 0.3s ease-out;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 @keyframes modalFadeIn {
@@ -240,72 +256,35 @@ footer {
     font-size: 2rem;
     cursor: pointer;
     font-weight: bold;
+    z-index: 10;
 }
 
 .close:hover {
     color: #666;
 }
 
-.sector {
-    width: 100%;
-    max-width: 1200px;
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: space-between;
-    gap: 24px;
-    padding: 20px;
-    padding-bottom: 136px;
-    box-sizing: border-box;
-    flex-wrap: nowrap;
-}
-
-.sector .hero-text {
-    flex: 1 1 55%;
-    min-width: 260px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 12px;
-    padding-top: 20px;
-    padding-bottom: 12px;
-    padding-left: 8px;
-    box-sizing: border-box;
-    height: 100%;
-}
-
-.hero-heading {
-    transform: translate(8px, 6px);
-}
-
-.sector img {
-    width: 48%;
-    max-width: 520px;
-    height: auto;
-    margin-left: auto;
-    display: block;
-    object-fit: cover;
-}
-
-/* Стили для формы заказа */
-.order-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
+/* Ordreskjema */
 .order-form h2 {
     margin-top: 0;
     color: #222;
     font-size: 1.8rem;
     text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    margin-bottom: 20px;
 }
 
 .form-group label {
@@ -317,6 +296,12 @@ footer {
 .form-group label.required::after {
     content: " *";
     color: #e74c3c;
+}
+
+.form-hint {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: -5px;
 }
 
 .form-group input,
@@ -340,10 +325,10 @@ footer {
     box-shadow: 0 0 0 2px rgba(34, 34, 34, 0.1);
 }
 
-/* Стили для выбора дров */
+/* Vedvalg */
 .wood-options {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 15px;
     margin-top: 10px;
 }
@@ -395,7 +380,7 @@ footer {
     margin-top: 5px;
 }
 
-/* Стили для количества */
+/* Mengdekontroll */
 .quantity-control {
     display: flex;
     align-items: center;
@@ -422,22 +407,24 @@ footer {
 }
 
 .quantity-input {
-    width: 60px;
+    width: 80px;
     text-align: center;
     font-weight: bold;
+    font-size: 1.1rem;
 }
 
-/* Стили для итоговой суммы */
+/* Ordresammendrag */
 .order-summary {
     background-color: #f8f9fa;
     border-radius: 8px;
     padding: 20px;
-    margin-top: 10px;
+    margin: 25px 0;
 }
 
 .summary-row {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid #eee;
@@ -446,76 +433,129 @@ footer {
 .summary-row:last-child {
     border-bottom: none;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: #222;
 }
 
 .total-amount {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: #27ae60;
-}
-
-/* Стили для способа оплаты */
-.payment-methods {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.payment-method {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 15px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.payment-method:hover {
-    border-color: #222;
-}
-
-.payment-method.selected {
-    border-color: #222;
-    background-color: rgba(34, 34, 34, 0.05);
-}
-
-.payment-method input[type="radio"] {
-    margin: 0;
-}
-
-.payment-icon {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-}
-
-.vipps-icon {
-    color: #FF5B24;
     font-weight: bold;
 }
 
-.payment-info {
-    flex: 1;
-}
-
-.payment-name {
-    font-weight: bold;
-    color: #222;
-}
-
-.payment-description {
+.summary-note {
     font-size: 0.9rem;
     color: #666;
-    margin-top: 3px;
+    margin-top: 10px;
+    font-style: italic;
 }
 
-/* Кнопка в форме */
+/* Betalingsinstruksjoner */
+.payment-instruction {
+    background-color: #f0f7ff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.payment-instruction h3 {
+    color: #222;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.payment-instruction ol {
+    padding-left: 20px;
+    margin: 15px 0;
+}
+
+.payment-instruction li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.warning-note {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 12px;
+    border-radius: 4px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Vipps betalingsboks */
+.vipps-payment-box {
+    border: 2px dashed #ddd;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    margin: 25px 0;
+    background-color: #fafafa;
+}
+
+.vipps-qr-code {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 20px;
+    display: block;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: white;
+}
+
+.vipps-info {
+    text-align: left;
+    max-width: 300px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.vipps-info p {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Bekreftelsesboks */
+.confirmation-box {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.confirmation-box p {
+    margin-top: 0;
+    font-weight: 600;
+}
+
+.confirmation-box .form-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0;
+}
+
+.confirmation-box input[type="checkbox"] {
+    width: auto;
+}
+
+/* Skjemaknapper */
+.form-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
 .form-btn {
     display: inline-block;
     padding: 16px;
@@ -528,10 +568,13 @@ footer {
     border: none;
     cursor: pointer;
     box-shadow: 0 2px 0 rgba(0,0,0,0.1);
-    margin-top: 10px;
     width: 100%;
     transition: all 0.3s ease;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .form-btn:hover {
@@ -545,42 +588,103 @@ footer {
     transform: none;
 }
 
+.form-btn.secondary {
+    background-color: #6c757d;
+    flex: 1;
+}
+
+.form-btn.secondary:hover {
+    background-color: #5a6268;
+}
+
+#nextToPayment {
+    background-color: #27ae60;
+}
+
+#nextToPayment:hover {
+    background-color: #219653;
+}
+
+#completeOrder {
+    background-color: #2e86c1;
+    flex: 2;
+}
+
+#completeOrder:hover {
+    background-color: #2874a6;
+}
+
+/* Statusmelding */
 #orderStatus {
-    margin-top: 15px;
-    text-align: center;
-    font-weight: bold;
+    margin-top: 25px;
 }
 
 .success-message {
-    color: #27ae60;
-    background-color: rgba(39, 174, 96, 0.1);
-    padding: 15px;
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 20px;
     border-radius: 8px;
     margin-top: 20px;
 }
 
-/* Стили для иконок */
-.material-icons {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: 'liga';
+.success-message h3 {
+    margin-top: 0;
+    color: #155724;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Seksjon for struktur */
+.sector {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 20px;
+    padding-bottom: 60px;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+}
+
+.sector .hero-text {
+    flex: 1 1 55%;
+    min-width: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    padding-top: 20px;
+    padding-bottom: 12px;
+    padding-left: 8px;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.hero-heading {
+    transform: translate(8px, 6px);
+}
+
+.sector img {
+    width: 48%;
+    max-width: 520px;
+    height: auto;
+    margin-left: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 /* ================== */
-/* ПЛАНШЕТЫ (768px - 1023px) */
+/* Responsiv design   */
 /* ================== */
+
+/* Tabletter */
 @media (max-width: 1023px) {
     .container {
         width: 90%;
@@ -606,7 +710,7 @@ footer {
         padding-bottom: 80px;
     }
     
-    .sector img {
+    .sector img, .hero img {
         width: 70%;
         max-width: 400px;
         margin: 20px auto 0 auto;
@@ -641,12 +745,6 @@ footer {
         margin-top: 40px;
     }
     
-    .kontimg {
-        width: 70%;
-        margin-bottom: 20px;
-    }
-    
-    /* Логотип для планшетов */
     .logo-img {
         height: 35px;
     }
@@ -654,11 +752,18 @@ footer {
     .modal-content {
         padding: 25px;
     }
+    
+    .wood-options {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    
+    .vipps-qr-code {
+        width: 180px;
+        height: 180px;
+    }
 }
 
-/* ================== */
-/* МОБИЛЬНЫЕ (до 767px) */
-/* ================== */
+/* Mobil */
 @media (max-width: 767px) {
     .container {
         width: 95%;
@@ -710,7 +815,7 @@ footer {
         gap: 15px;
     }
     
-    .sector img {
+    .sector img, .hero img {
         width: 90%;
         max-width: 300px;
     }
@@ -742,28 +847,37 @@ footer {
     
     .kontakt {
         margin-top: 30px;
-        padding: 0 15px;
-    }
-    
-    .kontimg {
-        width: 90%;
+        padding: 20px 15px;
     }
     
     .kontakt p {
         font-size: 0.95rem;
         line-height: 1.6;
-        padding: 0 10px;
     }
     
-    /* Модальное окно для мобильных */
+    /* Modal for mobil */
     .modal-content {
         margin: 10% auto;
         width: 95%;
         padding: 20px 15px;
+        max-height: 85vh;
     }
     
     .wood-options {
         grid-template-columns: 1fr;
+    }
+    
+    .form-buttons {
+        flex-direction: column;
+    }
+    
+    .vipps-qr-code {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .vipps-info {
+        font-size: 0.9rem;
     }
     
     footer {
@@ -773,9 +887,7 @@ footer {
     }
 }
 
-/* ================== */
-/* ОЧЕНЬ МАЛЕНЬКИЕ ЭКРАНЫ (до 480px) */
-/* ================== */
+/* Veldig små skjermer */
 @media (max-width: 480px) {
     .hero-text h1 {
         font-size: 1.6rem;
@@ -812,6 +924,11 @@ footer {
     }
     
     input, textarea, select {
-        font-size: 16px;
+        font-size: 16px; /* Forhindrer zoom på iOS */
+    }
+    
+    .vipps-qr-code {
+        width: 140px;
+        height: 140px;
     }
 }
