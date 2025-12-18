@@ -24,7 +24,7 @@
                         <h1>ПРОДАЖА ДРОВ</h1>
                         <p>Ved – tørket, av høy kvalitet og klar til bruk.</p>
                     </div>
-                    <a href="#buy" class="btn" id="buyBtn">bestille</a>
+                    <button class="btn" id="buyBtn">bestille</button>
                 </div>
                 <img src="drova.png" alt="Норвежские дрова">
             </div>
@@ -70,7 +70,7 @@
                 <label>Комментарий:</label>
                 <textarea name="message" rows="3" placeholder="Дополнительная информация..."></textarea>
                 
-                <button type="submit" class="btn">Заказать</button>
+                <button type="submit" class="form-btn">Заказать</button>
                 <div id="orderStatus"></div>
             </form>
         </div>
@@ -79,6 +79,7 @@
     <script>
         document.getElementById('buyBtn').onclick = function(e) {
             e.preventDefault();
+            console.log('Кнопка нажата!'); // Для отладки
             document.getElementById('orderModal').style.display = 'block';
         };
         
