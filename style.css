@@ -69,7 +69,11 @@ header {
     align-items: center;
     gap: 8px;
 }
-
+logo-img{
+    height: 100px;
+    width: 30%;
+    
+}
 .hero-text h1 {
     margin: 0;
     line-height: 1.05;
@@ -509,3 +513,4 @@ footer {
         font-size: 16px;
     }
 }
+
