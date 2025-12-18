@@ -1,0 +1,270 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #E6F2EB;
+color: #222;   overflow-x: hidden; /* Запрещаем горизонтальную прокрутку */
+}
+
+.container {
+    width: 80%;        /* ширина контейнера равна ширине контента */
+    /* не больше ширины экрана */
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding-top: 15px;
+    
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #222;
+}
+
+.menu a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #222;
+    font-size: 1rem;
+    transition: opacity 0.2s;
+}
+
+.menu a:hover {
+    opacity: 0.6;
+}
+
+/* главный блок */
+.hero {
+
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* текст слева */
+    align-items: center;
+   
+    
+    position: relative;
+    overflow: visible; /* чтобы картинка могла выходить за пределы */
+    border: 1px solid #ccc;
+}
+
+
+
+.hero-text {
+    min-height: 320px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly; /* сохраняет распределение элементов внутри блока */
+    gap: 0;                         /* убираем большой gap между H1, P и кнопкой — заголовок+параграф теперь в одном блоке */
+    text-align: center;
+    padding: 40px 20px;
+}
+
+/* Новый контейнер для заголовка + абзаца */
+.hero-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;          /* расстояние между h1 и p */
+}
+
+/* Немного уменьшил отступ у h1/p чтобы визуально был прямо под заголовком */
+.hero-text h1 {
+    margin: 0;
+    line-height: 1.05;
+    font-size: 2.8rem;   /* увеличено */
+    font-weight: 800;
+}
+
+.hero-text p {
+    margin: 0;
+    font-size: 1.5rem;   /* увеличено */
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 16px 38px;      /* увеличен внутренний отступ — кнопка больше */
+    font-size: 1.15rem;      /* чуть больше шрифт */
+    background-color: #222;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    border-radius: 8px;
+    transition: background 0.3s, transform 0.15s;
+    cursor: pointer;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.08);
+    margin: 8px auto 0 auto; /* немного смещаем кнопку вверх за счёт уменьшенного отступа сверху и центрируем */
+}
+
+.btn:hover {
+    background-color: #444;
+    transform: translateY(-2px); /* лёгкое приподнимание при ховере */
+}
+
+.hero img {
+   width: 40%;
+   height: auto;
+   border: 1px solid black;
+}
+
+.selektion {
+   width: 100%;
+   height: auto;
+   display: flex;
+   flex-direction: column;      /* Ставит заголовок сверху */
+   align-items: center;
+   text-align: center;   
+   margin-top: 6px; /* отступ от верха */
+   box-sizing: border-box;     /* чтобы padding учитывался внутри */
+   padding-bottom: 40px;       /* добавлено: увеличивает секцию вниз на 40px и сдвигает нижние блоки */
+}
+
+.selektion-content {
+   display: flex;
+   flex-direction: row;         /* Ставит p и img в ряд */
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   gap: 30px;                   /* Отступ между текстом и картинкой */
+}
+
+.selektion-content p {
+   max-width: 500px;
+}
+
+.selektion img{
+   width: 40%;
+   max-width: 400px;
+   height: auto;
+   border: 1px solid black;
+}
+
+.kontimg{
+   width: 40%;
+   max-width: 400px;
+   height: auto;
+   border: 1px solid black;
+}
+
+.kontakt {
+    margin-top: 50px;
+}
+
+footer {
+    width: 100vw;                /* На всю ширину окна */
+    left: 50%;
+    right: 0;
+    margin-left: -50vw;          /* Центрируем относительно окна */
+    position: relative;
+    padding: 24px 0;
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 40px;
+    letter-spacing: 1px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  overflow: auto;
+  background: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background: #fff;
+  margin: 5% auto;
+  padding: 30px 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+}
+
+.close {
+  color: #222;
+  position: absolute;
+  top: 10px; right: 20px;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.sector {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 20px;
+    padding-bottom: 136px;      /* уменьшено на 4px (было 140px) */
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+}
+
+.sector .hero-text {
+    flex: 1 1 55%;
+    min-width: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* заголовок сверху */
+    align-items: center;          /* центр по горизонтали */
+    gap: 12px;
+    padding-top: 20px;
+    padding-bottom: 12px;
+    padding-left: 8px;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+/* чуть опускаем заголовок/параграф (если нужно) */
+.hero-heading {
+    transform: translate(8px, 6px);
+}
+
+/* кнопка по центру по горизонтали, и чуть ниже середины по вертикали */
+.btn {
+    display: inline-block;
+    padding: 16px 38px;
+    font-size: 1.15rem;
+    background-color: #222;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    border-radius: 8px;
+    transition: background 0.3s, transform 0.15s;
+    cursor: pointer;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.08);
+    align-self: center;      /* центр по горизонтали */
+    margin-top: 40px;        /* было 100px — теперь 40px, кнопка поднимается */
+}
+
+.sector img {
+    width: 48%;              /* чуть шире по горизонтали, растёт влево */
+    max-width: 520px;        /* ограничение по размеру чтобы не ломать макет */
+    height: auto;
+    margin-left: auto;       /* прижимает картинку к правому краю секции */
+    display: block;
+    object-fit: cover;
+}
+
+/* уменьшить смещение на маленьких экранах */
+@media (max-width: 800px) {
+    .btn { margin-top: 24px; } /* мобильная версия — не слишком далеко */
+}
