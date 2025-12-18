@@ -21,10 +21,14 @@ header {
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    color: #222;
+}
+
+.logo-img {
+    max-height: 50px; /* Максимальная высота логотипа */
+    width: auto;
 }
 
 .menu a {
@@ -69,11 +73,7 @@ header {
     align-items: center;
     gap: 8px;
 }
-logo-img{
-    height: 100px;
-    width: 30%;
-    
-}
+
 .hero-text h1 {
     margin: 0;
     line-height: 1.05;
@@ -513,4 +513,5 @@ footer {
         font-size: 16px;
     }
 }
+
 
