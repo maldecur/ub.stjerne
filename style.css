@@ -264,7 +264,263 @@ footer {
     object-fit: cover;
 }
 
-/* уменьшить смещение на маленьких экранах */
-@media (max-width: 800px) {
-    .btn { margin-top: 24px; } /* мобильная версия — не слишком далеко */
+/* ================== */
+/* ПЛАНШЕТЫ (768px - 1023px) */
+/* ================== */
+@media (max-width: 1023px) {
+    .container {
+        width: 90%;
+        padding-top: 10px;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-text p {
+        font-size: 1.2rem;
+    }
+    
+    .btn {
+        padding: 14px 32px;
+        font-size: 1.05rem;
+    }
+    
+    .sector {
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 80px;
+    }
+    
+    .sector img {
+        width: 70%;
+        max-width: 400px;
+        margin: 20px auto 0 auto;
+        order: 2; /* Картинка после текста на планшетах */
+    }
+    
+    .hero-text {
+        order: 1; /* Текст перед картинкой на планшетах */
+        min-height: auto;
+        padding: 20px 10px;
+    }
+    
+    .selektion-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .selektion-content p {
+        max-width: 90%;
+        font-size: 1.1rem;
+    }
+    
+    .selektion img {
+        width: 70%;
+    }
+    
+    .kontakt {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: 40px;
+    }
+    
+    .kontimg {
+        width: 70%;
+        margin-bottom: 20px;
+    }
+}
+
+/* ================== */
+/* МОБИЛЬНЫЕ (до 767px) */
+/* ================== */
+@media (max-width: 767px) {
+    .container {
+        width: 95%;
+        padding-top: 5px;
+    }
+    
+    header {
+        flex-direction: column;
+        padding: 15px 0;
+        gap: 15px;
+    }
+    
+    .menu {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .menu a {
+        margin: 0;
+        font-size: 0.95rem;
+    }
+    
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-text p {
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+    
+    .btn {
+        padding: 12px 28px;
+        font-size: 1rem;
+        margin-top: 20px;
+        width: 80%;
+        max-width: 250px;
+        text-align: center;
+    }
+    
+    .sector {
+        padding-bottom: 60px;
+        gap: 15px;
+    }
+    
+    .sector img {
+        width: 90%;
+        max-width: 300px;
+    }
+    
+    .hero-heading {
+        transform: none;
+        padding: 0 10px;
+    }
+    
+    .selektion {
+        padding-bottom: 30px;
+        margin-top: 20px;
+    }
+    
+    .selektion h1 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+    
+    .selektion-content p {
+        max-width: 95%;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    .selektion img {
+        width: 90%;
+    }
+    
+    .kontakt {
+        margin-top: 30px;
+        padding: 0 15px;
+    }
+    
+    .kontimg {
+        width: 90%;
+    }
+    
+    .kontakt p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        padding: 0 10px;
+    }
+    
+    /* Модальное окно для мобильных */
+    .modal-content {
+        margin: 10% auto;
+        width: 95%;
+        padding: 20px 15px;
+    }
+    
+    footer {
+        font-size: 0.9rem;
+        padding: 20px 10px;
+        line-height: 1.5;
+    }
+}
+
+/* ================== */
+/* ОЧЕНЬ МАЛЕНЬКИЕ ЭКРАНЫ (до 480px) */
+/* ================== */
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 1.6rem;
+    }
+    
+    .hero-text p {
+        font-size: 0.95rem;
+    }
+    
+    .btn {
+        padding: 10px 24px;
+        font-size: 0.95rem;
+        width: 90%;
+    }
+    
+    .menu {
+        gap: 10px;
+    }
+    
+    .menu a {
+        font-size: 0.9rem;
+    }
+    
+    .selektion h1 {
+        font-size: 1.4rem;
+    }
+    
+    .modal-content h2 {
+        font-size: 1.3rem;
+    }
+    
+    input, textarea {
+        font-size: 16px; /* Фикс для iOS, чтобы не зумился текст */
+    }
+}
+
+/* ================== */
+/* ГОРИЗОНТАЛЬНАЯ ОРИЕНТАЦИЯ МОБИЛЬНЫХ */
+/* ================== */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero-text {
+        min-height: 250px;
+        padding: 10px 20px;
+    }
+    
+    .hero-text h1 {
+        font-size: 1.6rem;
+    }
+    
+    .btn {
+        margin-top: 15px;
+        padding: 10px 20px;
+    }
+    
+    .modal-content {
+        margin: 5% auto;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+}
+
+/* ================== */
+/* ДОПОЛНИТЕЛЬНО: Fix для тач-устройств */
+/* ================== */
+@media (hover: none) and (pointer: coarse) {
+    .menu a:hover {
+        opacity: 1; /* Убираем hover-эффекты для тач-устройств */
+    }
+    
+    .btn:hover {
+        transform: none;
+        background-color: #222;
+    }
+    
+    .btn:active {
+        background-color: #444;
+        transform: scale(0.98);
+    }
 }
