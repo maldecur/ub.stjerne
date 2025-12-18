@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Норвежские дрова - Заказ и оплата</title>
+    <title>Ved fra Norge - Vår Bedrift</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -15,9 +14,9 @@
                 <img src="logo.png" alt="ub.stjerne logo" class="logo-img">
             </a>
             <nav class="menu">
-                <a href="#top">Главная</a>
-                <a href="#about">О нас</a>
-                <a href="#contacts">Контакты</a>
+                <a href="#top">Hjem</a>
+                <a href="#about">Om oss</a>
+                <a href="#contacts">Kontakt</a>
             </nav>
         </header>
 
@@ -25,248 +24,222 @@
             <div class="sector">
                 <div class="hero-text">
                     <div class="hero-heading">
-                        <h1>ПРОДАЖА ДРОВ</h1>
-                        <p>Ved – tørket, av høy kvalitet og klar til bruk.</p>
+                        <h1>SALG AV VED</h1>
+                        <p>Tørket ved av høy kvalitet – klar til bruk.</p>
                     </div>
-                    <button class="btn" id="buyBtn">bestille</button>
+                    <button class="btn" id="buyBtn">Bestill her</button>
                 </div>
-                <img src="drova.png" alt="Норвежские дрова">
+                <img src="drova.png" alt="Norsk ved">
             </div>
         </main>
         
         <div class="selektion" id="about">
-            <h1>Om OSS</h1>
+            <h1>Om vår bedrift</h1>
             <div class="selektion-content">
-                <p>Vi er en skoleklasse fra Videregående i Svolvær som rydder området for uønskede trær, sager og kløver veden, og har startet en liten bedrift for å selge den.</p>
-                <img src="photo.jpg" alt="">
+                <p>Vi er en skoleklasse fra Videregående skole i Svolvær som rydder i området, feller uønskede trær, kløyver og tørker veden, og har startet denne lille bedriften for å selge den.</p>
+                <img src="photo.jpg" alt="Vår gruppe i skogen">
             </div>
         </div>
         
         <div class="kontakt" id="contacts">
-           
-            <p>Maria dyrektor number: 252454542<br>
-            emeil:gmail.com<br>
-            tg:maria</p>
+            <h2>Kontaktinformasjon</h2>
+            <p>
+                <strong>Kontaktperson (Maria):</strong> +47 252 45 542<br>
+                <strong>E-post:</strong> kontakt@stjerne-ved.no<br>
+                <strong>Telegram:</strong> @maria_ved
+            </p>
+            <p class="delivery-info">Vi leverer i Svolvær og omegn. Pris for levering avtales individuelt.</p>
         </div>
 
         <footer>
-            Web developer: <a href="https://github.com/maldecur" target="_blank" style="color:#fff;text-decoration:underline;">https://github.com/maldecur</a>
+            Nettsted utviklet av: <a href="https://github.com/maldecur" target="_blank">github.com/maldecur</a>
         </footer>
     </div>  
 
+    <!-- Modal for bestilling -->
     <div id="orderModal" class="modal">
         <div class="modal-content">
             <span class="close" id="closeModal">&times;</span>
-            
+            <h2>Bestillingsskjema</h2>
             <form id="orderForm" class="order-form">
-                <h2>Оформление заказа</h2>
-                
-                <!-- Личная информация -->
-                <div class="form-group">
-                    <label class="required">Имя:</label>
-                    <input type="text" name="name" id="name" required placeholder="Ваше имя">
+                <!-- Steg 1: Kundeinfo og bestilling -->
+                <div class="form-step active" id="step1">
+                    <div class="form-group">
+                        <label class="required">Fullt navn:</label>
+                        <input type="text" id="name" name="name" required placeholder="Ditt fulle navn">
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Telefonnummer:</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="+47 123 45 678">
+                        <small class="form-hint">Samme nummer som du bruker i Vipps.</small>
+                    </div>
+                    <div class="form-group">
+                        <label class="required">E-postadresse:</label>
+                        <input type="email" id="email" name="email" required placeholder="din@epost.no">
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Leveringsadresse:</label>
+                        <input type="text" id="address" name="address" required placeholder="Gateadresse, poststed">
+                    </div>
+
+                    <!-- Velg vedtype -->
+                    <div class="form-group">
+                        <label class="required">Type ved:</label>
+                        <div class="wood-options">
+                            <label class="wood-option" for="woodType1">
+                                <input type="radio" name="woodType" id="woodType1" value="birch" data-price="1500" required>
+                                <div class="wood-type">Bjørkeved</div>
+                                <div class="wood-price">1500 NOK/m³</div>
+                                <div class="wood-description">Høy varmeeffekt, lang forbrenning</div>
+                            </label>
+                            <label class="wood-option" for="woodType2">
+                                <input type="radio" name="woodType" id="woodType2" value="oak" data-price="1800">
+                                <div class="wood-type">Eikeved</div>
+                                <div class="wood-price">1800 NOK/m³</div>
+                                <div class="wood-description">Premium kvalitet, best varmeeffekt</div>
+                            </label>
+                            <label class="wood-option" for="woodType3">
+                                <input type="radio" name="woodType" id="woodType3" value="mixed" data-price="1200">
+                                <div class="wood-type">Blandet ved</div>
+                                <div class="wood-price">1200 NOK/m³</div>
+                                <div class="wood-description">Godt og rimelig alternativ</div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Velg mengde -->
+                    <div class="form-group">
+                        <label class="required">Mengde (m³):</label>
+                        <div class="quantity-control">
+                            <button type="button" class="quantity-btn" id="decreaseQty">-</button>
+                            <input type="number" name="quantity" id="quantity" class="quantity-input" value="1" min="1" max="10" required>
+                            <button type="button" class="quantity-btn" id="increaseQty">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Ordresammendrag -->
+                    <div class="order-summary">
+                        <div class="summary-row">
+                            <span>Totalpris:</span>
+                            <span id="totalAmount" class="total-amount">0 NOK</span>
+                        </div>
+                        <p class="summary-note">Prisen inkluderer ikke eventuell leveringsavgift.</p>
+                    </div>
+
+                    <button type="button" class="form-btn" id="nextToPayment">Fortsett til betaling</button>
                 </div>
-                
-                <div class="form-group">
-                    <label class="required">Телефон:</label>
-                    <input type="tel" name="phone" id="phone" required placeholder="+47 XXX XX XXX">
-                </div>
-                
-                <div class="form-group">
-                    <label class="required">Email:</label>
-                    <input type="email" name="email" id="email" required placeholder="example@email.com">
-                </div>
-                
-                <div class="form-group">
-                    <label class="required">Адрес доставки:</label>
-                    <input type="text" name="address" id="address" required placeholder="Город, улица, дом, почтовый индекс">
-                </div>
-                
-                <!-- Выбор типа дров -->
-                <div class="form-group">
-                    <label class="required">Тип дров:</label>
-                    <div class="wood-options">
-                        <label class="wood-option" for="woodType1">
-                            <input type="radio" name="woodType" id="woodType1" value="birch" data-price="1500" required>
-                            <div class="wood-type">Берёзовые</div>
-                            <div class="wood-price">1500 NOK/м³</div>
-                            <div class="wood-description">Высокая теплоотдача, долгое горение</div>
-                        </label>
-                        
-                        <label class="wood-option" for="woodType2">
-                            <input type="radio" name="woodType" id="woodType2" value="oak" data-price="1800">
-                            <div class="wood-type">Дубовые</div>
-                            <div class="wood-price">1800 NOK/м³</div>
-                            <div class="wood-description">Премиум качество, максимальная теплоотдача</div>
-                        </label>
-                        
-                        <label class="wood-option" for="woodType3">
-                            <input type="radio" name="woodType" id="woodType3" value="mixed" data-price="1200">
-                            <div class="wood-type">Смешанные</div>
-                            <div class="wood-price">1200 NOK/м³</div>
-                            <div class="wood-description">Экономичный вариант, хорошее качество</div>
-                        </label>
-                        
-                        <label class="wood-option" for="woodType4">
-                            <input type="radio" name="woodType" id="woodType4" value="pine" data-price="1300">
-                            <div class="wood-type">Сосновые</div>
-                            <div class="wood-price">1300 NOK/м³</div>
-                            <div class="wood-description">Быстро разгорается, приятный аромат</div>
-                        </label>
+
+                <!-- Steg 2: Betaling med Vipps -->
+                <div class="form-step" id="step2">
+                    <div class="payment-instruction">
+                        <h3><i class="fas fa-mobile-alt"></i> Betal med Vipps</h3>
+                        <p>Din bestilling er klar! For å fullføre, vennligst:</p>
+                        <ol>
+                            <li><strong>Skann QR-koden nedenfor</strong> med Vipps-appen</li>
+                            <li>Eller <strong>betalt til telefonnummeret</strong> som vises</li>
+                            <li><strong>Skriv inn beløpet:</strong> <span id="finalAmount" class="total-amount">0 NOK</span></li>
+                            <li>Skriv <strong>"Vedbestilling"</strong> som melding</li>
+                        </ol>
+                        <p class="warning-note"><i class="fas fa-exclamation-circle"></i> Husk å angi riktig beløp i Vipps!</p>
+                    </div>
+
+                    <div class="vipps-payment-box">
+                        <!-- BYTT UT "din-vipps-qr-kode.png" MED DIN EGEN FIL! -->
+                        <img src="din-vipps-qr-kode.png" alt="Vipps QR-kode for betaling" class="vipps-qr-code">
+                        <div class="vipps-info">
+                            <p><i class="fas fa-phone"></i> <strong>Vipps til:</strong> +47 252 45 542</p>
+                            <p><i class="fas fa-user"></i> <strong>Mottaker:</strong> ub.stjerne</p>
+                            <p><i class="fas fa-file-invoice"></i> <strong>Melding:</strong> Vedbestilling</p>
+                        </div>
+                    </div>
+
+                    <div class="confirmation-box">
+                        <p><strong>Når du har betalt:</strong></p>
+                        <div class="form-group">
+                            <input type="checkbox" id="paymentConfirmed" name="paymentConfirmed">
+                            <label for="paymentConfirmed">Jeg har gjennomført betalingen i Vipps</label>
+                        </div>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="button" class="form-btn secondary" id="backToOrder">Tilbake</button>
+                        <button type="submit" class="form-btn" id="completeOrder" disabled>
+                            <i class="fas fa-check"></i> Fullfør bestilling
+                        </button>
                     </div>
                 </div>
-                
-                <!-- Количество -->
-                <div class="form-group">
-                    <label class="required">Количество (м³):</label>
-                    <div class="quantity-control">
-                        <button type="button" class="quantity-btn" id="decreaseQty">-</button>
-                        <input type="number" name="quantity" id="quantity" class="quantity-input" value="1" min="1" max="10" required>
-                        <button type="button" class="quantity-btn" id="increaseQty">+</button>
-                    </div>
-                </div>
-                
-                <!-- Итоговая сумма -->
-                <div class="order-summary">
-                    <div class="summary-row">
-                        <span>Тип дров:</span>
-                        <span id="selectedWood">Не выбрано</span>
-                    </div>
-                    <div class="summary-row">
-                        <span>Количество:</span>
-                        <span id="displayQuantity">1 м³</span>
-                    </div>
-                    <div class="summary-row">
-                        <span>Цена за м³:</span>
-                        <span id="pricePerUnit">0 NOK</span>
-                    </div>
-                    <div class="summary-row">
-                        <span>Общая стоимость:</span>
-                        <span id="totalAmount" class="total-amount">0 NOK</span>
-                    </div>
-                </div>
-                
-                <!-- Способ оплаты -->
-                <div class="form-group">
-                    <label class="required">Способ оплаты:</label>
-                    <div class="payment-methods">
-                        <label class="payment-method" for="paymentVipps">
-                            <input type="radio" name="paymentMethod" id="paymentVipps" value="vipps" required>
-                            <div class="payment-icon vipps-icon">
-                                <i class="fas fa-mobile-alt"></i>
-                            </div>
-                            <div class="payment-info">
-                                <div class="payment-name">Vipps</div>
-                                <div class="payment-description">Мгновенная оплата через приложение</div>
-                            </div>
-                        </label>
-                        
-                        <label class="payment-method" for="paymentBank">
-                            <input type="radio" name="paymentMethod" id="paymentBank" value="bank">
-                            <div class="payment-icon">
-                                <i class="fas fa-university"></i>
-                            </div>
-                            <div class="payment-info">
-                                <div class="payment-name">Банковский перевод</div>
-                                <div class="payment-description">Оплата по счету в банке</div>
-                            </div>
-                        </label>
-                        
-                        <label class="payment-method" for="paymentCash">
-                            <input type="radio" name="paymentMethod" id="paymentCash" value="cash">
-                            <div class="payment-icon">
-                                <i class="fas fa-money-bill-wave"></i>
-                            </div>
-                            <div class="payment-info">
-                                <div class="payment-name">Наличные</div>
-                                <div class="payment-description">Оплата при доставке</div>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-                
-                <!-- Комментарий -->
-                <div class="form-group">
-                    <label>Комментарий к заказу:</label>
-                    <textarea name="message" id="message" rows="3" placeholder="Особые пожелания по доставке или другие комментарии..."></textarea>
-                </div>
-                
-                <!-- Кнопка отправки -->
-                <button type="submit" class="form-btn" id="submitBtn">
-                    <i class="fas fa-shopping-cart"></i> Перейти к оплате
-                </button>
-                
+
                 <div id="orderStatus"></div>
             </form>
         </div>
     </div>
 
     <script>
-        // Данные о товарах
+        // Data og initielle variabler
         const woodTypes = {
-            'birch': { name: 'Берёзовые', price: 1500 },
-            'oak': { name: 'Дубовые', price: 1800 },
-            'mixed': { name: 'Смешанные', price: 1200 },
-            'pine': { name: 'Сосновые', price: 1300 }
+            'birch': { name: 'Bjørkeved', price: 1500 },
+            'oak': { name: 'Eikeved', price: 1800 },
+            'mixed': { name: 'Blandet ved', price: 1200 }
         };
 
-        // Элементы DOM
-        const modal = document.getElementById('orderModal');
-        const buyBtn = document.getElementById('buyBtn');
-        const closeBtn = document.getElementById('closeModal');
-        const orderForm = document.getElementById('orderForm');
-        const orderStatus = document.getElementById('orderStatus');
-        const submitBtn = document.getElementById('submitBtn');
-        
-        // Элементы для расчета суммы
-        const woodTypeRadios = document.querySelectorAll('input[name="woodType"]');
-        const quantityInput = document.getElementById('quantity');
-        const decreaseBtn = document.getElementById('decreaseQty');
-        const increaseBtn = document.getElementById('increaseQty');
-        
-        // Элементы для отображения суммы
-        const selectedWoodSpan = document.getElementById('selectedWood');
-        const displayQuantitySpan = document.getElementById('displayQuantity');
-        const pricePerUnitSpan = document.getElementById('pricePerUnit');
-        const totalAmountSpan = document.getElementById('totalAmount');
-        
-        // Переменные состояния
         let selectedWood = null;
         let quantity = 1;
         let totalAmount = 0;
 
-        // Открытие модального окна
-        buyBtn.onclick = function(e) {
-            e.preventDefault();
-            console.log('Кнопка bestille нажата');
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        };
+        // DOM-elementer
+        const modal = document.getElementById('orderModal');
+        const buyBtn = document.getElementById('buyBtn');
+        const closeBtn = document.getElementById('closeModal');
+        const orderForm = document.getElementById('orderForm');
+        const step1 = document.getElementById('step1');
+        const step2 = document.getElementById('step2');
+        const nextBtn = document.getElementById('nextToPayment');
+        const backBtn = document.getElementById('backToOrder');
+        const completeBtn = document.getElementById('completeOrder');
+        const paymentCheckbox = document.getElementById('paymentConfirmed');
+        const statusDiv = document.getElementById('orderStatus');
 
-        // Закрытие модального окна
-        closeBtn.onclick = function() {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        };
+        const woodTypeRadios = document.querySelectorAll('input[name="woodType"]');
+        const quantityInput = document.getElementById('quantity');
+        const decreaseBtn = document.getElementById('decreaseQty');
+        const increaseBtn = document.getElementById('increaseQty');
+        const totalAmountSpan = document.getElementById('totalAmount');
+        const finalAmountSpan = document.getElementById('finalAmount');
 
-        // Закрытие при клике вне окна
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
+        // Funksjoner for å beregne pris
+        function calculateTotal() {
+            if (selectedWood && woodTypes[selectedWood]) {
+                const wood = woodTypes[selectedWood];
+                totalAmount = wood.price * quantity;
+                totalAmountSpan.textContent = totalAmount + ' NOK';
+                finalAmountSpan.textContent = totalAmount + ' NOK';
+                return totalAmount;
             }
-        };
+            totalAmountSpan.textContent = '0 NOK';
+            finalAmountSpan.textContent = '0 NOK';
+            return 0;
+        }
 
-        // Закрытие по ESC
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
+        function updateOrderSummary() {
+            calculateTotal();
+            if (selectedWood) {
+                nextBtn.disabled = false;
+            } else {
+                nextBtn.disabled = true;
             }
+        }
+
+        // Hendelseslyttere for bestillingsdetaljer
+        woodTypeRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                selectedWood = this.value;
+                document.querySelectorAll('.wood-option').forEach(opt => opt.classList.remove('selected'));
+                this.closest('.wood-option').classList.add('selected');
+                updateOrderSummary();
+            });
         });
 
-        // Управление количеством
-        decreaseBtn.onclick = function() {
+        decreaseBtn.onclick = () => {
             if (quantity > 1) {
                 quantity--;
                 quantityInput.value = quantity;
@@ -274,7 +247,7 @@
             }
         };
 
-        increaseBtn.onclick = function() {
+        increaseBtn.onclick = () => {
             if (quantity < 10) {
                 quantity++;
                 quantityInput.value = quantity;
@@ -290,201 +263,104 @@
             updateOrderSummary();
         });
 
-        // Выбор типа дров
-        woodTypeRadios.forEach(radio => {
-            radio.addEventListener('change', function() {
-                selectedWood = this.value;
-                
-                // Обновляем стили выбранного варианта
-                document.querySelectorAll('.wood-option').forEach(option => {
-                    option.classList.remove('selected');
-                });
-                this.closest('.wood-option').classList.add('selected');
-                
-                updateOrderSummary();
-            });
-        });
-
-        // Обновление итоговой суммы
-        function updateOrderSummary() {
-            if (selectedWood && woodTypes[selectedWood]) {
-                const wood = woodTypes[selectedWood];
-                const price = wood.price;
-                totalAmount = price * quantity;
-                
-                selectedWoodSpan.textContent = wood.name;
-                displayQuantitySpan.textContent = quantity + ' м³';
-                pricePerUnitSpan.textContent = price + ' NOK';
-                totalAmountSpan.textContent = totalAmount + ' NOK';
-                
-                submitBtn.disabled = false;
-            } else {
-                selectedWoodSpan.textContent = 'Не выбрано';
-                displayQuantitySpan.textContent = quantity + ' м³';
-                pricePerUnitSpan.textContent = '0 NOK';
-                totalAmountSpan.textContent = '0 NOK';
-                
-                submitBtn.disabled = true;
+        // Navigasjon mellom steg
+        nextBtn.onclick = function() {
+            if (!selectedWood) {
+                alert('Vennligst velg type ved før du fortsetter.');
+                return;
             }
-        }
+            step1.classList.remove('active');
+            step2.classList.add('active');
+            calculateTotal(); // Oppdater beløpet i steg 2
+        };
 
-        // Выбор способа оплаты
-        document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {
-            radio.addEventListener('change', function() {
-                document.querySelectorAll('.payment-method').forEach(method => {
-                    method.classList.remove('selected');
-                });
-                this.closest('.payment-method').classList.add('selected');
-            });
+        backBtn.onclick = function() {
+            step2.classList.remove('active');
+            step1.classList.add('active');
+        };
+
+        // Bekreftelse av betaling
+        paymentCheckbox.addEventListener('change', function() {
+            completeBtn.disabled = !this.checked;
         });
 
-        // Обработка отправки формы
-        orderForm.addEventListener('submit', function(e) {
+        // Åpne/lukke modal
+        buyBtn.onclick = function(e) {
             e.preventDefault();
-            
-            // Сбор данных формы
-            const formData = {
-                name: document.getElementById('name').value.trim(),
-                phone: document.getElementById('phone').value.trim(),
-                email: document.getElementById('email').value.trim(),
-                address: document.getElementById('address').value.trim(),
-                woodType: selectedWood,
-                woodTypeName: selectedWood ? woodTypes[selectedWood].name : '',
-                quantity: quantity,
-                totalAmount: totalAmount,
-                paymentMethod: document.querySelector('input[name="paymentMethod"]:checked')?.value || '',
-                message: document.getElementById('message').value.trim()
-            };
-            
-            // Валидация
-            if (!formData.name || !formData.phone || !formData.email || !formData.address || !formData.woodType || !formData.paymentMethod) {
-                showStatus('Пожалуйста, заполните все обязательные поля', 'error');
-                return;
-            }
-            
-            if (!formData.phone.match(/^\+?[0-9\s\-\(\)]+$/)) {
-                showStatus('Пожалуйста, введите корректный номер телефона', 'error');
-                return;
-            }
-            
-            // Показываем статус
-            showStatus('Обрабатываю заказ...', 'info');
-            submitBtn.disabled = true;
-            
-            // В реальном приложении здесь был бы fetch запрос к серверу
-            // Например: fetch('/api/order', { method: 'POST', body: JSON.stringify(formData) })
-            
-            // Имитация отправки данных
-            setTimeout(() => {
-                // В зависимости от выбранного способа оплаты
-                if (formData.paymentMethod === 'vipps') {
-                    // Для Vipps - перенаправление на страницу оплаты
-                    showStatus(`Заказ оформлен! Стоимость: ${totalAmount} NOK. Перенаправляю на оплату Vipps...`, 'success');
-                    
-                    // В реальном приложении здесь было бы:
-                    // window.location.href = 'https://vipps.no/payment-link/...';
-                    
-                    // Для демо покажем имитацию
-                    setTimeout(() => {
-                        const vippsMessage = `
-                            <div class="success-message">
-                                <h3>Оплата через Vipps</h3>
-                                <p>Для завершения оплаты:</p>
-                                <ol>
-                                    <li>Откройте приложение Vipps на вашем телефоне</li>
-                                    <li>Найдите платеж от "ub.stjerne"</li>
-                                    <li>Подтвердите платеж на сумму <strong>${totalAmount} NOK</strong></li>
-                                </ol>
-                                <p>После оплаты мы свяжемся с вами для уточнения деталей доставки.</p>
-                                <p><strong>Номер вашего заказа: #${Math.floor(100000 + Math.random() * 900000)}</strong></p>
-                            </div>
-                        `;
-                        orderStatus.innerHTML = vippsMessage;
-                        
-                        // Сброс формы через 5 секунд
-                        setTimeout(() => {
-                            resetForm();
-                        }, 5000);
-                    }, 2000);
-                    
-                } else if (formData.paymentMethod === 'bank') {
-                    // Для банковского перевода
-                    const bankInfo = `
-                        <div class="success-message">
-                            <h3>Банковские реквизиты</h3>
-                            <p>Для оплаты переведите <strong>${totalAmount} NOK</strong> на:</p>
-                            <p><strong>Получатель:</strong> ub.stjerne</p>
-                            <p><strong>Номер счета:</strong> 1234.56.78900</p>
-                            <p><strong>Сообщение получателю:</strong> ${formData.name}</p>
-                            <p><strong>Номер вашего заказа: #${Math.floor(100000 + Math.random() * 900000)}</strong></p>
-                            <p>После получения платежа мы свяжемся с вами.</p>
-                        </div>
-                    `;
-                    orderStatus.innerHTML = bankInfo;
-                    
-                    setTimeout(() => {
-                        resetForm();
-                    }, 5000);
-                    
-                } else if (formData.paymentMethod === 'cash') {
-                    // Для оплаты наличными
-                    const cashMessage = `
-                        <div class="success-message">
-                            <h3>Заказ принят!</h3>
-                            <p>Ваш заказ на сумму <strong>${totalAmount} NOK</strong> принят.</p>
-                            <p>Оплата будет производиться наличными при доставке.</p>
-                            <p><strong>Номер вашего заказа: #${Math.floor(100000 + Math.random() * 900000)}</strong></p>
-                            <p>Мы свяжемся с вами для согласования времени доставки.</p>
-                        </div>
-                    `;
-                    orderStatus.innerHTML = cashMessage;
-                    
-                    setTimeout(() => {
-                        resetForm();
-                    }, 5000);
-                }
-                
-            }, 1500);
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            resetFormToStep1();
+        };
+
+        closeBtn.onclick = closeModal;
+        window.onclick = function(event) {
+            if (event.target == modal) closeModal();
+        };
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') closeModal();
         });
 
-        // Функция показа статуса
-        function showStatus(message, type = 'info') {
-            const colors = {
-                'success': '#27ae60',
-                'error': '#e74c3c',
-                'info': '#3498db'
-            };
-            
-            orderStatus.innerHTML = `<p style="color: ${colors[type]}; font-weight: bold;">${message}</p>`;
-        }
-
-        // Функция сброса формы
-        function resetForm() {
-            orderForm.reset();
-            orderStatus.innerHTML = '';
-            selectedWood = null;
-            quantity = 1;
-            totalAmount = 0;
-            
-            // Сброс стилей
-            document.querySelectorAll('.wood-option').forEach(option => {
-                option.classList.remove('selected');
-            });
-            
-            document.querySelectorAll('.payment-method').forEach(method => {
-                method.classList.remove('selected');
-            });
-            
-            updateOrderSummary();
-            submitBtn.disabled = false;
-            
+        function closeModal() {
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
 
-        // Инициализация
+        document.querySelector('.modal-content').addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+
+        // Send ordre
+        orderForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const orderData = {
+                name: document.getElementById('name').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                address: document.getElementById('address').value.trim(),
+                woodType: woodTypes[selectedWood].name,
+                quantity: quantity,
+                totalAmount: totalAmount,
+                timestamp: new Date().toLocaleString('no-NO')
+            };
+
+            // Her ville man i en virkelig løsning sendt data til en server
+            console.log('Bestilling mottatt:', orderData);
+
+            // Vis bekreftelse
+            statusDiv.innerHTML = `
+                <div class="success-message">
+                    <h3><i class="fas fa-check-circle"></i> Bestilling registrert!</h3>
+                    <p>Takk for bestillingen din på <strong>${totalAmount} NOK</strong>.</p>
+                    <p>Vi har mottatt din betalingsbekreftelse og kontakter deg innen 24 timer for å avtale levering.</p>
+                    <p><strong>Bestillingsreferanse:</strong> VED-${Date.now().toString().slice(-6)}</p>
+                </div>
+            `;
+
+            // Nullstill skjema etter 5 sekunder
+            setTimeout(() => {
+                orderForm.reset();
+                closeModal();
+                resetFormToStep1();
+                statusDiv.innerHTML = '';
+            }, 5000);
+        });
+
+        // Hjelpefunksjon for å nullstille skjema
+        function resetFormToStep1() {
+            step2.classList.remove('active');
+            step1.classList.add('active');
+            selectedWood = null;
+            quantity = 1;
+            quantityInput.value = 1;
+            document.querySelectorAll('.wood-option').forEach(opt => opt.classList.remove('selected'));
+            paymentCheckbox.checked = false;
+            completeBtn.disabled = true;
+            updateOrderSummary();
+        }
+
+        // Initialisering
         updateOrderSummary();
     </script>
 </body>
 </html>
-
