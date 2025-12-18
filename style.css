@@ -28,7 +28,7 @@ header {
 
 .logo-img {
     max-height: 50px; /* Максимальная высота логотипа */
-    width: auto;
+    width: 100px;
 }
 
 .menu a {
@@ -513,5 +513,6 @@ footer {
         font-size: 16px;
     }
 }
+
 
 
