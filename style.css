@@ -8,11 +8,13 @@ body {
 
 .container {
     width: 80%;
+    max-width: 1200px;
     margin: 0 auto;
     box-sizing: border-box;
     padding-top: 15px;
 }
 
+/* Стили для шапки */
 header {
     display: flex;
     justify-content: space-between;
@@ -20,15 +22,18 @@ header {
     padding: 20px 0;
 }
 
+/* Стили для логотипа */
 .logo {
     display: flex;
     align-items: center;
     text-decoration: none;
+    height: 40px;
 }
 
 .logo-img {
-    max-height: 50px; /* Максимальная высота логотипа */
-    width: 100px;
+    height: 40px;
+    width: auto;
+    object-fit: contain;
 }
 
 .menu a {
@@ -43,7 +48,7 @@ header {
     opacity: 0.6;
 }
 
-/* главный блок */
+/* Главный блок */
 .hero {
     width: 100%;
     display: flex;
@@ -66,7 +71,7 @@ header {
     padding: 40px 20px;
 }
 
-/* Новый контейнер для заголовка + абзаца */
+/* Контейнер для заголовка + абзаца */
 .hero-heading {
     display: flex;
     flex-direction: column;
@@ -102,7 +107,7 @@ header {
     cursor: pointer;
     box-shadow: 0 2px 0 rgba(0,0,0,0.08);
     margin: 8px auto 0 auto;
-    transition: background 0.3s, transform 0.15s;
+    transition: all 0.3s ease;
 }
 
 .btn:hover {
@@ -110,10 +115,27 @@ header {
     transform: translateY(-2px);
 }
 
+.btn-vipps {
+    background-color: #FF5B24;
+    color: white;
+    padding: 15px 30px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-vipps:hover {
+    background-color: #E64A19;
+    transform: translateY(-2px);
+}
+
 .hero img {
     width: 40%;
     height: auto;
-   
+    border: 1px solid black;
 }
 
 .selektion {
@@ -162,16 +184,13 @@ header {
 footer {
     width: 100vw;
     left: 50%;
+    right: 0;
     margin-left: -50vw;
     position: relative;
-
     padding: 24px 0;
-    padding-left: 32px;   /* ⬅ отступ слева */
-
     background-color: #222;
     color: #fff;
-
-    text-align: left;     /* ⬅ выравнивание влево */
+    text-align: center;
     font-size: 1rem;
     margin-top: 40px;
     letter-spacing: 1px;
@@ -187,26 +206,44 @@ footer {
     height: 100vh;
     overflow: auto;
     background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(3px);
 }
 
 .modal-content {
     background: #fff;
     margin: 5% auto;
-    padding: 30px 20px;
-    border-radius: 10px;
+    padding: 30px;
+    border-radius: 12px;
     width: 90%;
-    max-width: 400px;
+    max-width: 500px;
     position: relative;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .close {
     color: #222;
     position: absolute;
-    top: 10px;
+    top: 15px;
     right: 20px;
     font-size: 2rem;
     cursor: pointer;
+    font-weight: bold;
+}
+
+.close:hover {
+    color: #666;
 }
 
 .sector {
@@ -251,11 +288,238 @@ footer {
     object-fit: cover;
 }
 
+/* Стили для формы заказа */
+.order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.order-form h2 {
+    margin-top: 0;
+    color: #222;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.form-group label.required::after {
+    content: " *";
+    color: #e74c3c;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+    font-family: 'Arial', sans-serif;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #222;
+    box-shadow: 0 0 0 2px rgba(34, 34, 34, 0.1);
+}
+
+/* Стили для выбора дров */
+.wood-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.wood-option {
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.wood-option:hover {
+    border-color: #222;
+    transform: translateY(-2px);
+}
+
+.wood-option.selected {
+    border-color: #222;
+    background-color: rgba(34, 34, 34, 0.05);
+}
+
+.wood-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.wood-type {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #222;
+}
+
+.wood-price {
+    color: #27ae60;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
+.wood-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Стили для количества */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-btn {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ddd;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.quantity-btn:hover {
+    background-color: #e9ecef;
+    border-color: #222;
+}
+
+.quantity-input {
+    width: 60px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Стили для итоговой суммы */
+.order-summary {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.summary-row:last-child {
+    border-bottom: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #222;
+}
+
+.total-amount {
+    font-size: 1.3rem;
+    color: #27ae60;
+}
+
+/* Стили для способа оплаты */
+.payment-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.payment-method {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.payment-method:hover {
+    border-color: #222;
+}
+
+.payment-method.selected {
+    border-color: #222;
+    background-color: rgba(34, 34, 34, 0.05);
+}
+
+.payment-method input[type="radio"] {
+    margin: 0;
+}
+
+.payment-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.vipps-icon {
+    color: #FF5B24;
+    font-weight: bold;
+}
+
+.payment-info {
+    flex: 1;
+}
+
+.payment-name {
+    font-weight: bold;
+    color: #222;
+}
+
+.payment-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 3px;
+}
+
 /* Кнопка в форме */
 .form-btn {
     display: inline-block;
-    padding: 16px 38px;
-    font-size: 1.15rem;
+    padding: 16px;
+    font-size: 1.1rem;
     background-color: #222;
     color: #fff;
     text-decoration: none;
@@ -263,42 +527,55 @@ footer {
     border-radius: 8px;
     border: none;
     cursor: pointer;
-    box-shadow: 0 2px 0 rgba(0,0,0,0.08);
-    margin-top: 20px;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.1);
+    margin-top: 10px;
     width: 100%;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
+    text-align: center;
 }
 
 .form-btn:hover {
     background-color: #444;
+    transform: translateY(-2px);
 }
 
-/* Стили для формы */
-.modal-content form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+.form-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
 }
 
-.modal-content label {
-    font-weight: 600;
-    margin-bottom: 5px;
+#orderStatus {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
 }
 
-.modal-content input,
-.modal-content textarea {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 100%;
-    box-sizing: border-box;
+.success-message {
+    color: #27ae60;
+    background-color: rgba(39, 174, 96, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
 }
 
-.modal-content input:focus,
-.modal-content textarea:focus {
-    outline: none;
-    border-color: #222;
+/* Стили для иконок */
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
 }
 
 /* ================== */
@@ -368,6 +645,15 @@ footer {
         width: 70%;
         margin-bottom: 20px;
     }
+    
+    /* Логотип для планшетов */
+    .logo-img {
+        height: 35px;
+    }
+    
+    .modal-content {
+        padding: 25px;
+    }
 }
 
 /* ================== */
@@ -383,6 +669,10 @@ footer {
         flex-direction: column;
         padding: 15px 0;
         gap: 15px;
+    }
+    
+    .logo-img {
+        height: 30px;
     }
     
     .menu {
@@ -465,10 +755,15 @@ footer {
         padding: 0 10px;
     }
     
+    /* Модальное окно для мобильных */
     .modal-content {
         margin: 10% auto;
         width: 95%;
         padding: 20px 15px;
+    }
+    
+    .wood-options {
+        grid-template-columns: 1fr;
     }
     
     footer {
@@ -496,6 +791,10 @@ footer {
         width: 90%;
     }
     
+    .logo-img {
+        height: 25px;
+    }
+    
     .menu {
         gap: 10px;
     }
@@ -512,12 +811,7 @@ footer {
         font-size: 1.3rem;
     }
     
-    input, textarea {
+    input, textarea, select {
         font-size: 16px;
     }
 }
-
-
-
-
-
