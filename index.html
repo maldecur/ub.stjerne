@@ -76,8 +76,7 @@
 </div>
     
          
-      </div>
-    </div>
+    
 
     <script>
 document.getElementById('buyBtn').onclick = function(e) {
@@ -95,3 +94,31 @@ window.onclick = function(event) {
 
 document.getElementById('orderForm
 
+// Закрытие модального окна по ESC
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    document.getElementById('orderModal').style.display = 'none';
+  }
+});
+
+// Предотвращаем закрытие при клике внутрь модального окна
+document.querySelector('.modal-content').addEventListener('click', function(event) {
+  event.stopPropagation();
+});
+
+// Обработка формы (базовый пример)
+document.getElementById('orderForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const statusDiv = document.getElementById('orderStatus');
+  statusDiv.innerHTML = '<p style="color: green; margin-top: 10px;">Заявка отправлена! Мы свяжемся с вами в ближайшее время.</p>';
+  
+  // Здесь обычно отправка данных на сервер
+  // fetch(...)
+  
+  // Очистка формы через 3 секунды и закрытие модального окна
+  setTimeout(function() {
+    document.getElementById('orderForm').reset();
+    document.getElementById('orderModal').style.display = 'none';
+    statusDiv.innerHTML = '';
+  }, 3000);
+});
