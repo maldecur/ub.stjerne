@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Норвежские дрова</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="#top" class="logo">ub.stjerne</a>
+            <nav class="menu">
+                <a href="#top">Главная</a>
+                <a href="#about">О нас</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+        </header>
+
+        <main class="hero" id="top">
+            
+            <div class="sector">                       <!-- добавил обёртку sector -->
+                <div class="hero-text">
+                    <div class="hero-heading">
+                        <h1>ПРОДАЖА ДРОВ</h1>
+                        <p>Ved – tørket, av høy kvalitet og klar 
+                          til bruk.</p>
+                    </div>
+                    <a href="#buy" class="btn" id="buyBtn">bestille</a>
+                </div>
+                <img src="img/drova.png" alt="Норвежские дрова">
+            </div>
+
+        </main>
+        
+        <div class="selektion" id="about">
+            <h1>Om OSS</h1>
+            <div class="selektion-content">
+                <p>Vi er en skoleklasse fra Videregående i 
+                  Svolvær som rydder området for uønskede trær,
+                   sager og kløver veden, og har startet 
+                   en liten bedrift for å selge den.
+                </p>
+                <img src="img/tur.png" alt="">
+            </div>
+        </div>
+        
+        <div class="kontakt" id="contacts">
+            <img class="kontimg" src="img/tur.png" alt="">
+            <p>Maria dyrektor number: 252454542
+            emeil:gmail.com
+            tg:maria
+            </p>
+        </div>
+        <footer>
+            Web developer: <a href="https://github.com/maldecur" target="_blank" style="color:#fff;text-decoration:underline;">https://github.com/maldecur</a>
+        </footer>
+    </div>  
+
+    <div id="orderModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Оформление заказа</h2>
+        <form id="orderForm">
+          <label>Имя:<br>
+            <input type="text" name="name" required>
+          </label><br><br>
+          <label>Телефон:<br>
+            <input type="text" name="phone" required>
+          </label><br><br>
+          <label>Email:<br>
+            <input type="email" name="email" required>
+          </label><br><br>
+          <label>Адрес доставки (Норвегия):<br>
+            <input type="text" name="address" required>
+          </label><br><br>
+          <label>Комментарий:<br>
+            <textarea name="message" rows="3"></textarea>
+          </label><br><br>
+          <button type="submit" class="btn">Заказать</button>
+          <div id="orderStatus"></div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+document.getElementById('buyBtn').onclick = function(e) {
+  e.preventDefault();
+  document.getElementById('orderModal').style.display = 'block';
+};
+document.getElementById('closeModal').onclick = function() {
+  document.getElementById('orderModal').style.display = 'none';
+};
+window.onclick = function(event) {
+  if (event.target == document.getElementById('orderModal')) {
+    document.getElementById('orderModal').style.display = 'none';
+  }
+};
+
+document.getElementById('orderForm').onsubmit = function(e) {
+  e.preventDefault();
+  var form = e.target;
+  var data = new FormData(form);
+  var status = document.getElementById('orderStatus');
+  status.textContent = 'Отправка...';
+  fetch('skript/send_order.php', {
+    method: 'POST',
+    body: data
+  })
+  .then(r => r.text())
+  .then(txt => {
+    status.innerHTML = txt;
+    if (txt.includes('Спасибо')) {
+      form.reset();
+      setTimeout(() => {
+        document.getElementById('orderModal').style.display = 'none';
+        status.textContent = '';
+      }, 2000);
+    }
+  })
+  .catch(() => status.textContent = 'Ошибка отправки');
+};
+</script>
+</body>
+</html>
