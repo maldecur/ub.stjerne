@@ -2,16 +2,15 @@ body {
     margin: 0;
     font-family: 'Arial', sans-serif;
     background-color: #E6F2EB;
-color: #222;   overflow-x: hidden; /* Запрещаем горизонтальную прокрутку */
+    color: #222;
+    overflow-x: hidden;
 }
 
 .container {
-    width: 80%;        /* ширина контейнера равна ширине контента */
-    /* не больше ширины экрана */
+    width: 80%;
     margin: 0 auto;
     box-sizing: border-box;
     padding-top: 15px;
-    
 }
 
 header {
@@ -42,19 +41,14 @@ header {
 
 /* главный блок */
 .hero {
-
     width: 100%;
     display: flex;
-    justify-content: space-between; /* текст слева */
+    justify-content: space-between;
     align-items: center;
-   
-    
     position: relative;
-    overflow: visible; /* чтобы картинка могла выходить за пределы */
+    overflow: visible;
     border: 1px solid #ccc;
 }
-
-
 
 .hero-text {
     min-height: 320px;
@@ -62,8 +56,8 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly; /* сохраняет распределение элементов внутри блока */
-    gap: 0;                         /* убираем большой gap между H1, P и кнопкой — заголовок+параграф теперь в одном блоке */
+    justify-content: space-evenly;
+    gap: 0;
     text-align: center;
     padding: 40px 20px;
 }
@@ -73,87 +67,88 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;          /* расстояние между h1 и p */
+    gap: 8px;
 }
 
-/* Немного уменьшил отступ у h1/p чтобы визуально был прямо под заголовком */
 .hero-text h1 {
     margin: 0;
     line-height: 1.05;
-    font-size: 2.8rem;   /* увеличено */
+    font-size: 2.8rem;
     font-weight: 800;
 }
 
 .hero-text p {
     margin: 0;
-    font-size: 1.5rem;   /* увеличено */
+    font-size: 1.5rem;
     font-weight: 600;
     margin-top: 4px;
 }
 
+/* Кнопка bestille */
 .btn {
     display: inline-block;
-    padding: 16px 38px;      /* увеличен внутренний отступ — кнопка больше */
-    font-size: 1.15rem;      /* чуть больше шрифт */
+    padding: 16px 38px;
+    font-size: 1.15rem;
     background-color: #222;
     color: #fff;
     text-decoration: none;
     font-weight: 800;
     border-radius: 8px;
-    transition: background 0.3s, transform 0.15s;
+    border: none;
     cursor: pointer;
     box-shadow: 0 2px 0 rgba(0,0,0,0.08);
-    margin: 8px auto 0 auto; /* немного смещаем кнопку вверх за счёт уменьшенного отступа сверху и центрируем */
+    margin: 8px auto 0 auto;
+    transition: background 0.3s, transform 0.15s;
 }
 
 .btn:hover {
     background-color: #444;
-    transform: translateY(-2px); /* лёгкое приподнимание при ховере */
+    transform: translateY(-2px);
 }
 
 .hero img {
-   width: 40%;
-   height: auto;
-   border: 1px solid black;
+    width: 40%;
+    height: auto;
+    border: 1px solid black;
 }
 
 .selektion {
-   width: 100%;
-   height: auto;
-   display: flex;
-   flex-direction: column;      /* Ставит заголовок сверху */
-   align-items: center;
-   text-align: center;   
-   margin-top: 6px; /* отступ от верха */
-   box-sizing: border-box;     /* чтобы padding учитывался внутри */
-   padding-bottom: 40px;       /* добавлено: увеличивает секцию вниз на 40px и сдвигает нижние блоки */
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 6px;
+    box-sizing: border-box;
+    padding-bottom: 40px;
 }
 
 .selektion-content {
-   display: flex;
-   flex-direction: row;         /* Ставит p и img в ряд */
-   align-items: center;
-   justify-content: center;
-   width: 100%;
-   gap: 30px;                   /* Отступ между текстом и картинкой */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 30px;
 }
 
 .selektion-content p {
-   max-width: 500px;
+    max-width: 500px;
 }
 
-.selektion img{
-   width: 40%;
-   max-width: 400px;
-   height: auto;
-   border: 1px solid black;
+.selektion img {
+    width: 40%;
+    max-width: 400px;
+    height: auto;
+    border: 1px solid black;
 }
 
-.kontimg{
-   width: 40%;
-   max-width: 400px;
-   height: auto;
-   border: 1px solid black;
+.kontimg {
+    width: 40%;
+    max-width: 400px;
+    height: auto;
+    border: 1px solid black;
 }
 
 .kontakt {
@@ -161,10 +156,10 @@ header {
 }
 
 footer {
-    width: 100vw;                /* На всю ширину окна */
+    width: 100vw;
     left: 50%;
     right: 0;
-    margin-left: -50vw;          /* Центрируем относительно окна */
+    margin-left: -50vw;
     position: relative;
     padding: 24px 0;
     background-color: #222;
@@ -176,32 +171,35 @@ footer {
 }
 
 .modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0; top: 0;
-  width: 100vw; height: 100vh;
-  overflow: auto;
-  background: rgba(0,0,0,0.5);
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background: rgba(0,0,0,0.5);
 }
 
 .modal-content {
-  background: #fff;
-  margin: 5% auto;
-  padding: 30px 20px;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 400px;
-  position: relative;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+    background: #fff;
+    margin: 5% auto;
+    padding: 30px 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
 }
 
 .close {
-  color: #222;
-  position: absolute;
-  top: 10px; right: 20px;
-  font-size: 2rem;
-  cursor: pointer;
+    color: #222;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
 }
 
 .sector {
@@ -213,7 +211,7 @@ footer {
     justify-content: space-between;
     gap: 24px;
     padding: 20px;
-    padding-bottom: 136px;      /* уменьшено на 4px (было 140px) */
+    padding-bottom: 136px;
     box-sizing: border-box;
     flex-wrap: nowrap;
 }
@@ -223,8 +221,8 @@ footer {
     min-width: 260px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* заголовок сверху */
-    align-items: center;          /* центр по горизонтали */
+    justify-content: flex-start;
+    align-items: center;
     gap: 12px;
     padding-top: 20px;
     padding-bottom: 12px;
@@ -233,13 +231,21 @@ footer {
     height: 100%;
 }
 
-/* чуть опускаем заголовок/параграф (если нужно) */
 .hero-heading {
     transform: translate(8px, 6px);
 }
 
-/* кнопка по центру по горизонтали, и чуть ниже середины по вертикали */
-.btn {
+.sector img {
+    width: 48%;
+    max-width: 520px;
+    height: auto;
+    margin-left: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Кнопка в форме */
+.form-btn {
     display: inline-block;
     padding: 16px 38px;
     font-size: 1.15rem;
@@ -248,20 +254,44 @@ footer {
     text-decoration: none;
     font-weight: 800;
     border-radius: 8px;
-    transition: background 0.3s, transform 0.15s;
+    border: none;
     cursor: pointer;
     box-shadow: 0 2px 0 rgba(0,0,0,0.08);
-    align-self: center;      /* центр по горизонтали */
-    margin-top: 40px;        /* было 100px — теперь 40px, кнопка поднимается */
+    margin-top: 20px;
+    width: 100%;
+    transition: background 0.3s;
 }
 
-.sector img {
-    width: 48%;              /* чуть шире по горизонтали, растёт влево */
-    max-width: 520px;        /* ограничение по размеру чтобы не ломать макет */
-    height: auto;
-    margin-left: auto;       /* прижимает картинку к правому краю секции */
-    display: block;
-    object-fit: cover;
+.form-btn:hover {
+    background-color: #444;
+}
+
+/* Стили для формы */
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-content label {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.modal-content input,
+.modal-content textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.modal-content input:focus,
+.modal-content textarea:focus {
+    outline: none;
+    border-color: #222;
 }
 
 /* ================== */
@@ -281,7 +311,7 @@ footer {
         font-size: 1.2rem;
     }
     
-    .btn {
+    .btn, .form-btn {
         padding: 14px 32px;
         font-size: 1.05rem;
     }
@@ -296,11 +326,11 @@ footer {
         width: 70%;
         max-width: 400px;
         margin: 20px auto 0 auto;
-        order: 2; /* Картинка после текста на планшетах */
+        order: 2;
     }
     
     .hero-text {
-        order: 1; /* Текст перед картинкой на планшетах */
+        order: 1;
         min-height: auto;
         padding: 20px 10px;
     }
@@ -369,7 +399,7 @@ footer {
         margin-top: 10px;
     }
     
-    .btn {
+    .btn, .form-btn {
         padding: 12px 28px;
         font-size: 1rem;
         margin-top: 20px;
@@ -428,7 +458,6 @@ footer {
         padding: 0 10px;
     }
     
-    /* Модальное окно для мобильных */
     .modal-content {
         margin: 10% auto;
         width: 95%;
@@ -454,7 +483,7 @@ footer {
         font-size: 0.95rem;
     }
     
-    .btn {
+    .btn, .form-btn {
         padding: 10px 24px;
         font-size: 0.95rem;
         width: 90%;
@@ -477,50 +506,6 @@ footer {
     }
     
     input, textarea {
-        font-size: 16px; /* Фикс для iOS, чтобы не зумился текст */
-    }
-}
-
-/* ================== */
-/* ГОРИЗОНТАЛЬНАЯ ОРИЕНТАЦИЯ МОБИЛЬНЫХ */
-/* ================== */
-@media (max-height: 500px) and (orientation: landscape) {
-    .hero-text {
-        min-height: 250px;
-        padding: 10px 20px;
-    }
-    
-    .hero-text h1 {
-        font-size: 1.6rem;
-    }
-    
-    .btn {
-        margin-top: 15px;
-        padding: 10px 20px;
-    }
-    
-    .modal-content {
-        margin: 5% auto;
-        max-height: 90vh;
-        overflow-y: auto;
-    }
-}
-
-/* ================== */
-/* ДОПОЛНИТЕЛЬНО: Fix для тач-устройств */
-/* ================== */
-@media (hover: none) and (pointer: coarse) {
-    .menu a:hover {
-        opacity: 1; /* Убираем hover-эффекты для тач-устройств */
-    }
-    
-    .btn:hover {
-        transform: none;
-        background-color: #222;
-    }
-    
-    .btn:active {
-        background-color: #444;
-        transform: scale(0.98);
+        font-size: 16px;
     }
 }
